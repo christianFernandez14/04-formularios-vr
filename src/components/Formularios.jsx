@@ -13,8 +13,20 @@ const Formularios = () => {
       bio: datos.bio.value
     }
     setUsuarios([
-      ...usuarios, usuario ])   
+      ...usuarios, usuario])
   }
+
+  const cambiarDato = e => {
+    setUsuarios(estado_previo => {
+      return {
+        ...estado_previo,
+        [e.target.name]: e.target.value
+      }
+
+    }
+    )
+  }
+
 
   return (
     <div>
@@ -26,13 +38,19 @@ const Formularios = () => {
             type="text"
             placeholder='Nombre'
             name='nombre'
+            onChange={cambiarDato}
           />
           <input
             type="text"
             placeholder='Apellido'
             name='apellido'
+            onChange={cambiarDato}
+
           />
-          <select name='genero'>
+          <select
+            onChange={cambiarDato}
+            name='genero'
+          >
             <option value="">Seleccione</option>
             <option value="hombre">Hombre</option>
             <option value="muijer">Mujer</option>
@@ -41,6 +59,8 @@ const Formularios = () => {
         <textarea
           placeholder='Biografia'
           name='bio'
+          onChange={cambiarDato}
+
         ></textarea>
         <input type="submit" value='Enviar' />
       </form>
