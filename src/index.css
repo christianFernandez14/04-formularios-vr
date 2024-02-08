@@ -1,0 +1,16 @@
+form {
+  width: 450px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+input {
+  margin-right: 20px;
+}
+
+input[type="submit"] {
+  width: 90px;
+  align-self: center;
+}
